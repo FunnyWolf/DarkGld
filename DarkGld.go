@@ -1,17 +1,17 @@
 package main
 
 import (
-	"crypto/rand"
-	"os/exec"
-	"flag"
-	"github.com/fatih/color"
 	"DarkGld/templates"
 	"DarkGld/util"
-	"os"
-	"path"
-	"strings"
+	"crypto/rand"
+	"flag"
+	"github.com/fatih/color"
 	"io/ioutil"
 	mrand "math/rand"
+	"os"
+	"os/exec"
+	"path"
+	"strings"
 	"time"
 )
 
@@ -61,7 +61,7 @@ func main() {
 		os.Setenv("GOARCH", "386")
 	}else {
 		color.Green("[>] Arch => x64")
-		os.Setenv("GOARCH", "386")
+		os.Setenv("GOARCH", "amd64")
 	}
 
 	dir := "temp/"
@@ -91,7 +91,7 @@ func main() {
 		templates.FileTemplate(dir+GOFILE, key, nonce, raw, *file, *protect)
 	}else {
 		color.Yellow("[>] Null => EXE")
-		templates.NoFileTemplate(dir+GOFILE, key, nonce, raw, *protect)
+		templates.NoFileTemplate(dir + GOFILE, key, nonce, raw, *protect)
 	}
 	manifest := dir + strings.Replace(GOFILE, ".go", ".exe.manifest", -1)
 	if *uac {
@@ -117,6 +117,7 @@ func main() {
 	}
 	color.Green("[>] Compiling %s", GOFILE)
 	err = exec.Command("go", "build", "-o", ".\\" + OUTFILE , "-ldflags", "-w -s -H=windowsgui", "-gcflags", "-trimpath=$GOPATH/src", "-asmflags", "-trimpath=$GOPATH/src", ".\\" + dir ).Run()
+
 	if err != nil {
 		println("[!] Compile fail: " + err.Error())
 		return
