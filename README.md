@@ -12,6 +12,7 @@ A tool for quickly generating fishing Trojan horse.
 ```
 github.com/klauspost/cpuid
 github.com/fatih/color
+github.com/akavel/rsrc
 ```
 
 #### 命令
