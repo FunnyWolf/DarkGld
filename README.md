@@ -15,6 +15,13 @@ github.com/fatih/color
 github.com/akavel/rsrc
 ```
 
+#### 编译
+
+进入项目根目录，执行命令如下：
+```
+go build 
+```
+
 #### 命令
 
 ```
