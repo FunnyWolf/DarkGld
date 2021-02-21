@@ -3,7 +3,7 @@ A tool for quickly generating fishing Trojan horse.
 
 #### 介绍
 
-项目是根据 [gld](https://github.com/darkb1rd/DarkGld.git) 进行二次开发的，**仅用于交流学习，禁止用于非法活动** 
+项目是根据 [gld](https://github.com/EddieIvan01/gld) 进行二次开发的，**仅用于交流学习，禁止用于非法活动** 
 
 #### 依赖
 
@@ -19,6 +19,7 @@ github.com/akavel/rsrc
 
 进入项目根目录，执行命令如下：
 ```
+set GO111MODULE=off
 go build 
 ```
 
