@@ -116,6 +116,7 @@ func main() {
 		}
 	}
 	color.Green("[>] Compiling %s", GOFILE)
+	os.Setenv("GO111MODULE", "off")
 	err = exec.Command("go", "build", "-o", ".\\" + OUTFILE , "-ldflags", "-w -s -H=windowsgui", "-gcflags", "-trimpath=$GOPATH/src", "-asmflags", "-trimpath=$GOPATH/src", ".\\" + dir ).Run()
 
 	if err != nil {
