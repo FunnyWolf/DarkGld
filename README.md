@@ -19,7 +19,10 @@ github.com/akavel/rsrc
 
 进入项目根目录，执行命令如下：
 ```
-set GO111MODULE=off
+go mod init DarkGld
+go get github.com/klauspost/cpuid
+go get github.com/fatih/color
+go get github.com/akavel/rsrc
 go build 
 ```
 
